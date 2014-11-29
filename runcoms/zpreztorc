@@ -32,7 +32,18 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'completion' \
-  'prompt'
+  'prompt' \
+  \
+  'history-substring-search' \
+  'archive' \
+  'fasd' \
+  'systemd' \
+  'git' \
+  'node' \
+  'pacman' \
+  'rsync' \
+  'k2s'
+
 
 #
 # Editor

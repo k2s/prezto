@@ -1,0 +1,19 @@
+#alias ,pa-update='yaourt -Syu --aur'
+,pa-update() {
+  if [ -d /etc/.git ] ; then sudo etckeeper pre-install ; fi
+  yaourt -Syu --aur --noconfirm
+  #packer -Suy --noedit
+  sudo sh -c "pacman -Qqne > /etc/bigm-pacman-packages.lst"
+  if [ -d /etc/.git ] ; then sudo etckeeper post-install ; fi
+  # https://wiki.archlinux.org/index.php/Pacnew_and_Pacsave_Files
+  # pacnew
+  pacnew=`find /etc/ /usr/share/config/ -ignore_readdir_race -type f -name "*.pacnew" -exec sh -c 'f={}; echo "sudo meld $f ${f%.pacnew}"' \; 2>/dev/null`
+  if [ ! "$pacnew" = "" ]; then
+    echo -e "\n\e[1;31mFix configuration differences:\e[0m\n$pacnew"
+  fi
+  # pacsave
+  pacnew=`find /etc/ /usr/share/config/ -ignore_readdir_race -type f -name "*.pacsave" -exec sh -c 'f={}; echo "sudo meld $f ${f%.pacsave}"' \; 2>/dev/null`
+  if [ ! "$pacnew" = "" ]; then
+    echo -e "\n\e[1;31mFix IMPORTANT configuration differences before reboot:\e[0m\n$pacnew"
+  fi
+}

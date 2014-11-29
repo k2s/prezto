@@ -11,3 +11,11 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+## use nano for example in crontab -e
+export EDITOR="nano"
+
+## less will search case insensitive, don't clear on exit, show colors
+export LESS='-RXI +G'
+
+source "${ZDOTDIR:-$HOME}/.zpersonal.zsh"
