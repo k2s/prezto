@@ -18,4 +18,6 @@ export EDITOR="nano"
 ## less will search case insensitive, don't clear on exit, show colors
 export LESS='-RXI +G'
 
-source "${ZDOTDIR:-$HOME}/.zpersonal.zsh"
+if [[ -s "${ZDOTDIR:-$HOME}/.zpersonal.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zpersonal.zsh"
+fi
