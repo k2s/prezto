@@ -1,3 +1,7 @@
 *.zwc
 *.zwc.old
 modules/*/cache.zsh
+
+### JetBrains template
+*.iml
+.idea/
