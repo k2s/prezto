@@ -50,7 +50,7 @@ alias -g G="| grep"
 
 ### easy systemd commands
 # simplified systemd command, for instance "sudo systemctl stop xxx" - > "0.stop xxx"
-if ! systemd-notify --booted;
+if (! [ -e /usr/bin/systemd-notify ] || ! systemd-notify --booted);
 then  # for not systemd
     0.start() {
         sudo rc.d start $@
