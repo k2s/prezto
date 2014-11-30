@@ -37,7 +37,6 @@ zstyle ':prezto:load' pmodule \
   'history-substring-search' \
   'archive' \
   'fasd' \
-  'systemd' \
   'git' \
   'node' \
   'pacman' \
