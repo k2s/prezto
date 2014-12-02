@@ -48,6 +48,12 @@ alias -g G="| grep"
 #alias -g S="| sed -e"
 #alias -g A="| awk"
 
+### PC power management ###
+alias reboot='sudo reboot'
+alias shutdown='sudo shutdown -h now'
+alias hibernate='sudo pm-hibernate'
+alias suspend='sudo pm-suspend'
+
 ### easy systemd commands
 # simplified systemd command, for instance "sudo systemctl stop xxx" - > "0.stop xxx"
 if ! systemd-notify --booted;
