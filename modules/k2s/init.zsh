@@ -39,6 +39,21 @@ alias ,pa-remove-completly='sudo pacman -Rns'
 # Show history of pacman/yaourt actions
 alias ,pa-history='less /var/log/pacman.log'
 
+### mc return to current directory ###
+alias mc='. /usr/lib/mc/mc-wrapper.sh'
+
+### editing support ###
+
+## remove
+function ,ed-remove-from-known_hosts {
+	if [ -z "$1" ]; then
+		echo "you have to provide line number as parameter"
+		return
+	fi
+	line="$1"d
+	sed -i $line ~/.ssh/known_hosts
+}
+
 ### ZSH global aliases for piping ###
 alias -g H="| head"
 alias -g T="| tail"
